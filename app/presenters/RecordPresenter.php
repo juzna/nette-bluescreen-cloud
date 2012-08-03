@@ -10,9 +10,9 @@ class RecordPresenter extends BasePresenter
 
 
 
-	public function renderDefault($id)
+	public function renderDefault($hash)
 	{
-		$this->template->record = $record = $this->context->recordService->fetch($id);
+		$this->template->record = $record = $this->context->recordService->fetch($hash);
 	}
 
 

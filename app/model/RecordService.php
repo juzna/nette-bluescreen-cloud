@@ -22,17 +22,18 @@ class RecordService extends Nette\Object
 	public function add($message, $content)
 	{
 		return $this->database->table('records')->insert(array(
+			'hash'    => sha1($message . $content . time()),
 			'message' => $message,
 			'content' => $content,
-			'added' => new DateTime,
-			'ip' => $this->ip,
+			'added'   => new DateTime,
+			'ip'      => $this->ip,
 		));
 	}
 
 
-	public function fetch($id)
+	public function fetch($hash)
 	{
-		return $this->database->table('records')->get($id);
+		return $this->database->table('records')->where('hash', $hash)->fetch();
 	}
 
 }
