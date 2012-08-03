@@ -13,6 +13,7 @@ class RecordPresenter extends BasePresenter
 	public function renderDefault($hash)
 	{
 		$this->template->record = $record = $this->context->recordService->fetch($hash);
+		if ( ! $record) throw new \Nette\Application\BadRequestException("Record not found", 404);
 	}
 
 
