@@ -31,7 +31,7 @@ $container = $configurator->createContainer();
 
 // Setup router
 $container->router[] = new Route('index.php', 'Homepage:default', Route::ONE_WAY);
-$container->router[] = new Route('record/<hash [a-f0-9]+>', 'Record:default');
+$container->router[] = new Route('record/<hash [a-f0-9]{32,}>', 'Record:default');
 $container->router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
 
 
