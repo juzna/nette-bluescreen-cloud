@@ -29,8 +29,8 @@ class RecordPresenter extends BasePresenter
 		if (true || $this->isAjax()) {
 			$this->absoluteUrls = TRUE;
 			$this->payload->ok = TRUE;
-			$this->payload->id = $record->id;
-			$this->payload->link = $this->link("default", array($record->id));
+			$this->payload->id = $record->hash;
+			$this->payload->link = $this->link("default", array($record->hash));
 			$this->sendPayload();
 		} else {
 			$this->sendResponse(new Nette\Application\Responses\TextResponse("Added as $record->id"));
